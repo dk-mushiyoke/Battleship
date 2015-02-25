@@ -12,5 +12,5 @@ battleship: battleship.c
 	$(CC) $(FLAGS) -o battleship battleship.c -lcurses
 
 clean:
-	rm -f battleship *~
+	rm -f battleship *~ fifo*
 

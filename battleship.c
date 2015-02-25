@@ -860,7 +860,9 @@ void wprintw_center(WINDOW* currw, int wline, char* str)
 // fill a line with given char
 void fill_line(WINDOW* currw, int wline, char ch)
 {
-  int i, len = currw->_maxx;
+  int i;//, len = currw->_maxx;
+  int len, y;
+  getmaxyx(stdscr, y, len);
   char str[2] = {ch, '\0'};
   wmove(currw, wline, 0);
   for(i = 0; i < len; i++)
