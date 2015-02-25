@@ -722,8 +722,9 @@ void print_board() {
     wmove(p2_board, 2 + i, 1);
     wprintw(p2_board, "%c ", row_index2char(i));
     for(j = 0; j < BOARD_SIZE; j++) {
-      wprintw(p2_board, "%c ", (sank_p2[i][j] == '.') ? board_p2[i][j] : sank_p2[i][j]);
-      // wprintw(p2_board, "%c ", sank_p2[i][j]);
+//      switch in this line to see opponent's board
+//      wprintw(p2_board, "%c ", (sank_p2[i][j] == '.') ? board_p2[i][j] : sank_p2[i][j]);
+       wprintw(p2_board, "%c ", sank_p2[i][j]);
     }
   }
   wrefresh(p2_board);
@@ -860,8 +861,7 @@ void wprintw_center(WINDOW* currw, int wline, char* str)
 // fill a line with given char
 void fill_line(WINDOW* currw, int wline, char ch)
 {
-  int i;//, len = currw->_maxx;
-  int len, y;
+  int i, len, __unused y;
   getmaxyx(stdscr, y, len);
   char str[2] = {ch, '\0'};
   wmove(currw, wline, 0);
